@@ -1,0 +1,56 @@
+.jumbo {
+	background: url("../../../assets/sky.jpg") no-repeat bottom;
+	background-size: cover;
+	background-position: center top;
+	color: white;
+	position: relative;
+	z-index: -1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150px;
+	margin-bottom: 2rem;
+}
+
+.overlay {
+	background-color: #000;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -2;
+}
+
+h2, h4 {
+	text-shadow: 1px 1px 5px black;
+	font-weight: 500;
+	margin-bottom: 0;
+}
+
+img {
+	width: 100px;
+	border: 3px solid white;
+	border-radius: 50%;
+}
+
+.jumbo-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.jumbo-content>div {
+	padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+	h2 {
+		font-size: 1.5em;
+	}
+
+	h4 {
+		font-size: 1.17em;
+	}
+}

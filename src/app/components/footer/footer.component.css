@@ -1,0 +1,48 @@
+.main-footer {
+	background-color: var(--body-bg);
+	color: grey;
+	margin-top: 2em;
+	padding-top: 1em;
+	position: relative;
+	padding-bottom: 1em;
+	width: 100%;
+	height: 214px;
+}
+
+h4 {
+	color: lightgrey;
+}
+
+.col-sm {
+	text-align: center;
+}
+
+hr {
+	border-top: 1px solid grey;
+}
+
+p {
+	margin: 0;
+}
+
+.icons {
+	text-align: center;
+}
+
+.links {
+	padding-left: 10px;
+}
+
+.links a {
+	display: block;
+}
+
+td {
+	white-space: pre;
+}
+
+.flexible-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}

@@ -1,0 +1,43 @@
+<div>
+	<h2 class="handwriting">Send me a message</h2>
+	<form id="contact-form" (submit)="sendEmail()" #contactForm="ngForm">
+		<div class="mb-3">
+			<label for="name">Name</label>
+			<input
+				type="text"
+				class="form-control"
+				id="name"
+				[(ngModel)]="setState.user_name"
+				name="name"
+				required
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="exampleInputEmail1">
+				Email address
+			</label>
+			<input
+				type="email"
+				class="form-control"
+				id="email"
+				[(ngModel)]="setState.user_email"
+				name="email"
+				required
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="message">Message</label>
+			<textarea
+				class="form-control"
+				rows="5"
+				id="message"
+				[(ngModel)]="setState.message"
+				name="message"
+				required>
+			</textarea>
+		</div>
+		<button type="submit" class="btn btn-success" [disabled]="!contactForm.valid">
+			Submit
+		</button>
+	</form>
+</div>

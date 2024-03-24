@@ -1,0 +1,16 @@
+<div class="flex-container">
+	<div>
+		<div class="genreHeight" style="background-image: url('{{musicStyleData.picture}}');">
+			<div class="genreBackground">
+				<h4>{{musicStyleData.name}}</h4>
+			</div>
+			<div class="playerBottom">
+				<audio controls controlsList="nodownload" preload="none">
+					<source src="{{musicStyleData.music}}" type="audio/mpeg">
+					Your browser does not support the audio element.
+				</audio>
+			</div>
+		</div>
+		<p class="list-unstyled">&copy; <a href="{{musicStyleData.image}}" rel="noopener noreferrer" target="_blank">{{musicStyleData.photographer}}</a> - <a href="https://pixabay.com/" rel="noopener noreferrer" target="_blank">Pixabay</a></p>
+	</div>
+</div>

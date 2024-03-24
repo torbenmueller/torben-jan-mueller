@@ -1,0 +1,48 @@
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.flex-container > div {
+	box-sizing: border-box;
+	max-width: 100%;
+	width: 460px;
+	text-align: center;
+	padding: 10px;
+}
+
+.flex-container p {
+	color: grey;
+	font-size: small;
+}
+
+h4 {
+	margin-bottom: 0;
+}
+
+.genreBackground {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 5px;
+}
+
+.genreHeight {
+	position: relative;
+	max-width: 100%;
+	height: 200px;
+	background-size: cover;
+	color: white;
+}
+
+.playerBottom {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: 0px;
+	opacity: 0.8;
+}
+
+/* .adventure {
+	background-image: url("../../../assets/adventure.jpg");
+} */
