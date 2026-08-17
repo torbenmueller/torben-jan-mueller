@@ -17,7 +17,7 @@ export class ContactComponent {
 
   sendEmail() {
     emailjs
-      .send('service_nynclbs', 'template_h3g50hl', this.setState, {
+      .send('service_zndnhwo', 'template_h3g50hl', this.setState, {
         publicKey: 'sQs2BMQfNl23A3NwY',
       })
       .then(
