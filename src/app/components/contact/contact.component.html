@@ -1,52 +1,58 @@
 <div>
-	<h2 class="handwriting">Send me a message <i class="far fa-paper-plane ms-2 mb-3"></i></h2>
-	<form id="contact-form" (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm">
-		<div class="mb-3">
-			<label for="name">Name</label>
-			<input
-				type="text"
-				class="form-control"
-				id="name"
-				[(ngModel)]="setState.user_name"
-				name="name"
-				required
-			/>
-			<div *ngIf="!contactForm.controls['name']?.valid && contactForm.controls['name']?.touched">
-				<span class="contact-form-hints">Please enter your name!</span>
-			</div>
-		</div>
-		<div class="mb-3">
-			<label for="exampleInputEmail1">
-				Email address
-			</label>
-			<input
-				type="email"
-				class="form-control"
-				id="email"
-				[(ngModel)]="setState.user_email"
-				name="email"
-				required
-			/>
-			<div *ngIf="!contactForm.controls['email']?.valid && contactForm.controls['email']?.touched">
-				<span class="contact-form-hints">Please enter a valid email!</span>
-			</div>
-		</div>
-		<div class="mb-3">
-			<label for="message">Message</label>
-			<textarea
-				class="form-control"
-				rows="5"
-				id="message"
-				[(ngModel)]="setState.message"
-				name="message"
-				required>
-			</textarea>
-			<div *ngIf="!contactForm.controls['message']?.valid && contactForm.controls['message']?.touched">
-				<span class="contact-form-hints">Please enter your message!</span>
-			</div>
-		</div>
-		<button type="submit" class="btn btn-success">
-			Submit
-		</button>
-	</form>
-</div>
+  <h2 class="handwriting">Send me a message <i class="far fa-paper-plane ms-2 mb-3"></i></h2>
+  <form id="contact-form" (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm">
+    <div class="mb-3">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        [(ngModel)]="setState.user_name"
+        name="name"
+        required
+        />
+        @if (!contactForm.controls['name']?.valid && contactForm.controls['name']?.touched) {
+          <div>
+            <span class="contact-form-hints">Please enter your name!</span>
+          </div>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1">
+          Email address
+        </label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          [(ngModel)]="setState.user_email"
+          name="email"
+          required
+          />
+          @if (!contactForm.controls['email']?.valid && contactForm.controls['email']?.touched) {
+            <div>
+              <span class="contact-form-hints">Please enter a valid email!</span>
+            </div>
+          }
+        </div>
+        <div class="mb-3">
+          <label for="message">Message</label>
+          <textarea
+            class="form-control"
+            rows="5"
+            id="message"
+            [(ngModel)]="setState.message"
+            name="message"
+            required>
+          </textarea>
+          @if (!contactForm.controls['message']?.valid && contactForm.controls['message']?.touched) {
+            <div>
+              <span class="contact-form-hints">Please enter your message!</span>
+            </div>
+          }
+        </div>
+        <button type="submit" class="btn btn-success">
+          Submit
+        </button>
+      </form>
+    </div>
