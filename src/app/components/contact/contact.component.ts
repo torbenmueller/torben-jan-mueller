@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
-import { ToastrService } from 'ngx-toastr';
+/* import { ToastrService } from 'ngx-toastr'; */
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './contact.component.css',
 })
 export class ContactComponent {
-  constructor(private toastr: ToastrService) {}
+  /* constructor(private toastr: ToastrService) {} */
 
   setState = {
     user_name: '',
@@ -31,12 +31,12 @@ export class ContactComponent {
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
           console.log('response:', response);
-          this.toastr.success('Message successfully sent to .');
+          /* this.toastr.success('Message successfully sent to .'); */
           this.resetForm(form);
         },
         (err) => {
           console.log('FAILED...', err);
-          this.toastr.error('Failed to send message.');
+          /* this.toastr.error('Failed to send message.'); */
         }
       );
   }
