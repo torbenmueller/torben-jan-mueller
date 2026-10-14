@@ -21,7 +21,6 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     AboutComponent,
-    ContactComponent,
     ImprintComponent,
     JumbotronComponent,
     MusicComponent,
@@ -32,7 +31,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ContactComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

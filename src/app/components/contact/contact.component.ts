@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 /* import { ToastrService } from 'ngx-toastr'; */
 
@@ -7,7 +7,7 @@ import emailjs from '@emailjs/browser';
     selector: 'app-contact',
     templateUrl: './contact.component.html',
     styleUrl: './contact.component.css',
-    standalone: false
+    imports: [FormsModule]
 })
 export class ContactComponent {
   /* constructor(private toastr: ToastrService) {} */
