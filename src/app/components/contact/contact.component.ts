@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 /* import { ToastrService } from 'ngx-toastr'; */
@@ -7,6 +7,7 @@ import emailjs from '@emailjs/browser';
     selector: 'app-contact',
     templateUrl: './contact.component.html',
     styleUrl: './contact.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [FormsModule]
 })
 export class ContactComponent {
