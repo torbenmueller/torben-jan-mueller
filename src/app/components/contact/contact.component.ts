@@ -4,9 +4,10 @@ import emailjs from '@emailjs/browser';
 /* import { ToastrService } from 'ngx-toastr'; */
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css',
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styleUrl: './contact.component.css',
+    standalone: false
 })
 export class ContactComponent {
   /* constructor(private toastr: ToastrService) {} */
