@@ -53,4 +53,10 @@
           Submit
         </button>
       </form>
+      @if (toast(); as t) {
+        <div class="toast-message" [class.toast-error]="t.type === 'error'" role="status" aria-live="polite">
+          {{ t.text }}
+          <button type="button" class="btn-close btn-close-white ms-3" aria-label="Close" (click)="toast.set(null)"></button>
+        </div>
+      }
     </div>

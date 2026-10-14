@@ -1,7 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
-/* import { ToastrService } from 'ngx-toastr'; */
 
 @Component({
     selector: 'app-contact',
@@ -11,7 +10,14 @@ import emailjs from '@emailjs/browser';
     imports: [FormsModule]
 })
 export class ContactComponent {
-  /* constructor(private toastr: ToastrService) {} */
+  toast = signal<{ type: 'success' | 'error'; text: string } | null>(null);
+  private toastTimer?: ReturnType<typeof setTimeout>;
+
+  private showToast(type: 'success' | 'error', text: string) {
+    clearTimeout(this.toastTimer);
+    this.toast.set({ type, text });
+    this.toastTimer = setTimeout(() => this.toast.set(null), 10000);
+  }
 
   setState = {
     user_name: '',
@@ -32,13 +38,12 @@ export class ContactComponent {
       .then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
-          console.log('response:', response);
-          /* this.toastr.success('Message successfully sent to .'); */
+          this.showToast('success', `Message successfully sent to ${this.setState.user_email}.`);
           this.resetForm(form);
         },
         (err) => {
           console.log('FAILED...', err);
-          /* this.toastr.error('Failed to send message.'); */
+          this.showToast('error', 'Failed to send message.');
         }
       );
   }
