@@ -1,5 +1,5 @@
     <div>
-      <h2 class="handwriting">Send me a message <i class="far fa-paper-plane ms-2 mb-3"></i></h2>
+      <h2 class="handwriting">Send me a message <i class="far fa-paper-plane ms-2 mb-3 opacity-50"></i></h2>
       <form id="contact-form" (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm">
         <div class="mb-3">
           <label for="name">Name</label>
@@ -25,11 +25,16 @@
             class="form-control"
             id="email"
             [(ngModel)]="setState.user_email"
+            email
             required
           />
-          @if (!contactForm.controls['email']?.valid && contactForm.controls['email']?.touched) {
+          @if (contactForm.controls['email']?.invalid && (contactForm.controls['email']?.dirty || contactForm.controls['email']?.touched)) {
             <div>
-              <span class="contact-form-hints">Please enter a valid email!</span>
+              @if (contactForm.controls['email']?.errors?.['required']) {
+                <span class="contact-form-hints">Please enter your email address!</span>
+              } @else if (contactForm.controls['email']?.errors?.['email']) {
+                <span class="contact-form-hints">Please enter a valid email address!</span>
+              }
             </div>
           }
         </div>

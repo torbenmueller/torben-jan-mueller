@@ -20,4 +20,16 @@ describe('ContactComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show an email validation error while entering an invalid address', async () => {
+    const emailInput = fixture.nativeElement.querySelector('#email') as HTMLInputElement;
+    emailInput.value = 'not-an-email';
+    emailInput.dispatchEvent(new Event('input'));
+
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    expect(component.setState.user_email).toBe('not-an-email');
+    expect(fixture.nativeElement.textContent).toContain('Please enter a valid email address!');
+  });
 });
