@@ -54,8 +54,13 @@
             </div>
           }
         </div>
-        <button type="submit" class="btn btn-success">
-          Submit
+        <button type="submit" class="btn btn-success" [disabled]="isSending">
+          @if (isSending) {
+          <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+          Sending...
+          } @else {
+          Send Message
+          }
         </button>
       </form>
       @if (toast(); as t) {

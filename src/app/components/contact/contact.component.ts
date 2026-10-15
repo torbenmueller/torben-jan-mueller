@@ -10,6 +10,7 @@ import emailjs from '@emailjs/browser';
     imports: [FormsModule]
 })
 export class ContactComponent {
+  isSending: boolean = false;
   toast = signal<{ type: 'success' | 'error'; text: string } | null>(null);
   private toastTimer?: ReturnType<typeof setTimeout>;
 
@@ -31,6 +32,7 @@ export class ContactComponent {
       return;
     }
 
+    this.isSending = true;
     emailjs
       .send('service_zndnhwo', 'template_h3g50hl', this.setState, {
         publicKey: 'sQs2BMQfNl23A3NwY',
@@ -40,10 +42,12 @@ export class ContactComponent {
           console.log('SUCCESS!', response.status, response.text);
           this.showToast('success', `Message successfully sent to ${this.setState.user_email}.`);
           this.resetForm(form);
+          this.isSending = false;
         },
         (err) => {
           console.log('FAILED...', err);
           this.showToast('error', 'Failed to send message.');
+          this.isSending = false;
         }
       );
   }
